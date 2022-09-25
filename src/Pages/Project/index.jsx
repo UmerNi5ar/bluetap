@@ -24,9 +24,7 @@ import EpicDetails from './EpicDetails';
 import History from './History';
 import InviteMember from './ProjectSettings/InviteMember';
 import { useState } from 'react';
-import mapboxgl from 'mapbox-gl';
-// eslint-disable-next-line import/no-webpack-loader-syntax
-mapboxgl.workerClass = require('worker-loader!mapbox-gl/dist/mapbox-gl-csp-worker').default;
+
 const Project = ({ setProject, epicUnderView }) => {
   const match = useRouteMatch();
   const params = useParams();

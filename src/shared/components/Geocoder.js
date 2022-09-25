@@ -11,7 +11,6 @@ const Geocoder = (props) => {
   });
   useControl(() => ctrl);
   ctrl.on('result', (e) => {
-    console.log('baout close');
     const coords = e.result.geometry.coordinates;
     props.setLngLat({ lng: coords[0], lat: coords[1] });
   });

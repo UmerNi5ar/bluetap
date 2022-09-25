@@ -23,7 +23,9 @@ import {
 } from '../../../shared/constants/projects';
 import { useState } from 'react';
 import { useRef } from 'react';
-
+import mapboxgl from 'mapbox-gl';
+// eslint-disable-next-line import/no-webpack-loader-syntax
+mapboxgl.workerClass = require('worker-loader!mapbox-gl/dist/mapbox-gl-csp-worker').default;
 const propTypes = {
   fetchProjects: PropTypes.func.isRequired,
   onCreate: PropTypes.func.isRequired,
@@ -42,7 +44,6 @@ const CreateProject = ({
   const [files, setFiles] = useState({});
   const [lnglat, setLngLat] = useState();
   const { currentUserId } = useCurrentUser();
-  console.log(lnglat, '---------lnglat');
 
   return (
     <div>

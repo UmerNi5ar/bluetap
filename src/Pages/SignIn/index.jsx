@@ -20,7 +20,7 @@ import { AuthPage } from '../Styles';
 import toast from '../../shared/utils/toast';
 import { connect } from 'react-redux';
 import { setUser } from '../../redux/user/user-reducer';
-
+import ShowMap from '../../shared/components/ShowMap';
 const SignIn = ({ setUser }) => {
   const [{ isCreating }, signIn] = useApi.post('/auth/login');
   const [{ data }] = useApi.get('/auth', {}, { cachePolicy: 'no-cache' });
@@ -37,6 +37,7 @@ const SignIn = ({ setUser }) => {
   }, [data, history, setUser]);
   return (
     <div className="signin__container">
+      <ShowMap longitude="70" latitude="30" />
       <AuthPage>
         <EntryCard>
           <Form

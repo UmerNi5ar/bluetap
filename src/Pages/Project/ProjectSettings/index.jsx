@@ -138,7 +138,9 @@ const ProjectSettings = ({ project, fetchProject, openInvitationModal }) => {
                   {files.file ? (
                     files.file.name
                   ) : (
-                    <Image src={`/files/${project.file}`}></Image>
+                    <Image
+                      src={`https://dry-plateau-53276.herokuapp.com/files/${project.file}`}
+                    ></Image>
                   )}
                 </ImageContainer>
               ) : (

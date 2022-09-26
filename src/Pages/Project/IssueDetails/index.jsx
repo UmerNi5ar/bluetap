@@ -69,7 +69,6 @@ const ProjectBoardIssueDetails = ({
       toast.error('No review provided!');
       return;
     }
-    console.log(ratings, review);
     const sData = {
       issueId,
       body: review,
@@ -103,14 +102,14 @@ const ProjectBoardIssueDetails = ({
       <Content>
         <Left>
           <Title issue={issue} updateIssue={updateIssue} />
-          <a href={`/files/${issue.file}`} target="_blank" rel="noreferrer">
-            <Image
-              src={`/files/${issue.file}`}
-              alt="some pic"
-              issue={issue}
-              updateIssue={updateIssue}
-            />
-          </a>
+
+          <Image
+            src={`https://dry-plateau-53276.herokuapp.com/files/${issue.file}`}
+            alt="some pic"
+            issue={issue}
+            updateIssue={updateIssue}
+          />
+
           <Description issue={issue} updateIssue={updateIssue} />
           <Comments role={user.role} issue={issue} fetchIssue={fetchIssue} />
         </Left>

@@ -55,7 +55,6 @@ const ProjectSettings = ({ project, fetchProject, openInvitationModal }) => {
       });
     }
   }, []);
-  console.log(project);
   return (
     <React.Fragment>
       <Form
@@ -78,11 +77,9 @@ const ProjectSettings = ({ project, fetchProject, openInvitationModal }) => {
               longitude: `${lnglat.lng}`,
             },
           };
-          console.log(values);
           try {
             await updateProject(values);
             if (files.file) {
-              console.log('running file');
               let url = `https://dry-plateau-53276.herokuapp.com/v1/project/postImage/${project.key}`;
               let fd = new FormData();
               fd.append('file', files.file);
@@ -129,7 +126,6 @@ const ProjectSettings = ({ project, fetchProject, openInvitationModal }) => {
                     style={{ display: 'none' }}
                     onChange={(event) => {
                       event.preventDefault();
-                      console.log(event.target.files[0], 'file');
                       setFiles({ file: event.target.files[0] });
                     }}
                   ></input>
@@ -153,7 +149,6 @@ const ProjectSettings = ({ project, fetchProject, openInvitationModal }) => {
                       type="file"
                       onChange={(event) => {
                         event.preventDefault();
-                        console.log(event.target.files[0], 'file');
                         setFiles({ file: event.target.files[0] });
                       }}
                     ></input>

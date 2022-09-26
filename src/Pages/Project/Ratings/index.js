@@ -2,8 +2,6 @@ import React from 'react';
 import ReactStars from 'react-rating-stars-component';
 
 const Ratings = ({ size, half, setRatings }) => {
-  console.log(half);
-
   return (
     <div>
       {/* <h1>First Example</h1>
@@ -11,7 +9,6 @@ const Ratings = ({ size, half, setRatings }) => {
       <ReactStars
         size={50}
         onChange={(newRating) => {
-          console.log(newRating);
         }}
         emptyIcon={<i className="far fa-star" />}
         halfIcon={<i className="fa fa-star-half-alt" />}

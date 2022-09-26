@@ -3,6 +3,10 @@ import styled from 'styled-components';
 import { color, font } from '../../../shared/utils/styles';
 
 export const Container = styled.div`
+  @media screen and (max-width: 450px) {
+    display: flex;
+    flex-direction: column;
+  }
   color: ${color.textMedium};
   ${font.size(15)};
 `;

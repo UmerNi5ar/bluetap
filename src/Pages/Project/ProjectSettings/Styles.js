@@ -11,6 +11,12 @@ export const FormCont = styled.div`
 export const Header = styled.div`
   display: flex;
   justify-content: space-between;
+
+  @media (max-width: 550px) {
+    flex-direction: column;
+    padding: 0.5rem;
+    justify-content: flex-end;
+  }
 `;
 
 export const FormElement = styled(Form.Element)`

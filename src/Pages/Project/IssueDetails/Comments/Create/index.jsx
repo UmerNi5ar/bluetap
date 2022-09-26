@@ -51,10 +51,8 @@ const ProjectBoardIssueDetailsCommentsCreate = ({
   };
   const handleReviewCreate = async () => {
     try {
-      console.log('not runninfg');
       setCreating(true);
       setReview(reviewBody);
-      console.log(reviewBody);
       // await api.post(`/createReview`, {
       //   ...review,
       //   ratings,

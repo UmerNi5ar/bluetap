@@ -82,7 +82,6 @@ const ProjectIssueCreate = ({
           projectId: project.id,
           creationDate: Date.now(),
         };
-        console.log(reqObject, 'fieeeeeld value');
 
         if (values.assigneeId) {
           reqObject = {
@@ -96,7 +95,6 @@ const ProjectIssueCreate = ({
           let url = `https://dry-plateau-53276.herokuapp.com/v1/issue/postImage/${
             epic.key
           }*${epic.totalIssues + 1}`;
-          console.log(url);
           let fd = new FormData();
           fd.append('file', files.file);
 
@@ -118,7 +116,6 @@ const ProjectIssueCreate = ({
           required
           onChange={(event) => {
             event.preventDefault();
-            console.log(event.target.files[0], 'file');
             setFiles({ file: event.target.files[0] });
           }}
         />

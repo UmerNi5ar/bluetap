@@ -1,11 +1,22 @@
-import React, { Fragment, useState, useRef, useEffect, useCallback } from 'react';
+import React, {
+  Fragment,
+  useState,
+  useRef,
+  useEffect,
+  useCallback,
+} from 'react';
 import ReactDOM from 'react-dom';
 import PropTypes from 'prop-types';
 
 import useOnOutsideClick from '../../../shared/hooks/onOutsideClick';
 import useOnEscapeKeyDown from '../../../shared/hooks/onEscapeKeyDown';
 
-import { ScrollOverlay, ClickableOverlay, StyledModal, CloseIcon } from './Styles';
+import {
+  ScrollOverlay,
+  ClickableOverlay,
+  StyledModal,
+  CloseIcon,
+} from './Styles';
 
 const propTypes = {
   className: PropTypes.string,
@@ -82,12 +93,18 @@ const Modal = ({
                 data-testid={testid}
                 ref={$modalRef}
               >
-                {withCloseIcon && <CloseIcon type="close" variant={variant} onClick={closeModal} />}
+                {withCloseIcon && (
+                  <CloseIcon
+                    type="close"
+                    variant={variant}
+                    onClick={closeModal}
+                  />
+                )}
                 {renderContent({ close: closeModal })}
               </StyledModal>
             </ClickableOverlay>
           </ScrollOverlay>,
-          $root,
+          $root
         )}
     </Fragment>
   );

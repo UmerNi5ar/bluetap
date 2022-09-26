@@ -1,11 +1,9 @@
-import styled from "styled-components";
-
-
+import styled from 'styled-components';
 
 export const NotificationWrapper = styled.div`
   display: flex;
   margin-top: 3px;
-  z-index: 2
+  z-index: 2;
 `;
 
 export const NotificationContainer = styled.div`

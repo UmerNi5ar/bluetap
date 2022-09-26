@@ -14,7 +14,6 @@ import {
 const ProjectNavbarLeft = (props) => {
   const history = useHistory();
   const [, signOut] = useApi.post('/auth/logout');
-  console.log(props);
 
   return (
     <NavLeft>

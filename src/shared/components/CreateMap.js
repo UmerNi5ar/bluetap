@@ -27,10 +27,7 @@ const CreateMap = (props) => {
         });
       //   .finally((data) => {
 
-      //     console.log(data);
-
       //   });
-      // console.log('i aint running');
     }
     return;
   };
@@ -38,7 +35,6 @@ const CreateMap = (props) => {
     getLoc();
   }, []);
   // if (props.lnglat && typeof props.lnglat.lat === 'number') {
-  console.log(props.lnglat, '000000000000000000000000000');
 
   // props.setLngLat({
   //   lng: `${props.lnglat.lng}`,

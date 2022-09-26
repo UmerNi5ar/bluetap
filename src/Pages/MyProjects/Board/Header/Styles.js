@@ -16,7 +16,7 @@ export const BoardName = styled.div`
 export const HeaderRightContent = styled.div`
   display: flex;
   gap: 10px;
-  @media (max-width: 450px) {
+  @media (max-width: 550px) {
     flex-direction: column;
     padding: 0.5rem;
     justify-content: flex-end;

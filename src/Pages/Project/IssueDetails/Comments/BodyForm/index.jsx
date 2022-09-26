@@ -22,7 +22,6 @@ const ProjectBoardIssueDetailsCommentsBodyForm = (props) => {
       props.onSubmit();
     }
   };
-  console.log(props);
   return (
     <Fragment>
       <Textarea

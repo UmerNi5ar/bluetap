@@ -1,16 +1,16 @@
-import React from "react";
-import PropTypes from "prop-types";
-import toast from "../../../../shared/utils/toast";
-import useApi from "../../../../shared/hooks/api";
-import { Form } from "../../../../shared/components";
+import React from 'react';
+import PropTypes from 'prop-types';
+import toast from '../../../../shared/utils/toast';
+import useApi from '../../../../shared/hooks/api';
+import { Form } from '../../../../shared/components';
 
-import { ActionButton, FormElement, FormHeading, Actions } from "./Styles";
-import { connect } from "react-redux";
+import { ActionButton, FormElement, FormHeading, Actions } from './Styles';
+import { connect } from 'react-redux';
 
 const propTypes = {
   project: PropTypes.object.isRequired,
   user: PropTypes.object.isRequired,
-  modalClose: PropTypes.func.isRequired
+  modalClose: PropTypes.func.isRequired,
 };
 
 const InviteMemberToProject = ({ project, user, modalClose }) => {
@@ -20,14 +20,14 @@ const InviteMemberToProject = ({ project, user, modalClose }) => {
     <Form
       enableReinitialize
       initialValues={{
-        email: ""
+        email: '',
       }}
       validations={{
-        email: [Form.is.required(), Form.is.email()]
+        email: [Form.is.required(), Form.is.email()],
       }}
-      onSubmit={async values => {
+      onSubmit={async (values) => {
         if (values.email === user.email) {
-          toast.error("Already a member!");
+          toast.error('Already a member!');
           return;
         }
         const code = Math.random()
@@ -39,9 +39,9 @@ const InviteMemberToProject = ({ project, user, modalClose }) => {
             email: values.email,
             invitationCode: code,
             projectId: project._id,
-            orgId: user.orgId
+            orgId: user.orgId,
           });
-          toast.success("Invitation Sent!");
+          toast.success('Invitation Sent!');
           modalClose();
         } catch (error) {
           toast.error(error);
@@ -70,8 +70,8 @@ const InviteMemberToProject = ({ project, user, modalClose }) => {
 
 InviteMemberToProject.propTypes = propTypes;
 
-const mapStateToProps = state => ({
-  user: state.userState.user
+const mapStateToProps = (state) => ({
+  user: state.userState.user,
 });
 
 export default connect(mapStateToProps)(InviteMemberToProject);

@@ -78,3 +78,15 @@ html {
 .mapShow__container div:first-child {
   border-radius: 10px;
 }
+
+@media screen and (max-width: 450px) {
+  .items {
+    background-color: red;
+
+    width: 70vw;
+    z-index: 10000;
+  }
+  .container {
+    width: 70vw !important;
+  }
+}

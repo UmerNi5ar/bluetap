@@ -47,7 +47,6 @@ const ProjectBoardLists = ({
     });
     await fetchProject();
   };
-  console.log(IssueStatus, 'status...............--------------');
   return (
     <DragDropContext onDragEnd={handleIssueDrop}>
       <Lists>

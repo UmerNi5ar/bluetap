@@ -95,7 +95,6 @@ const CreateProject = ({
               type="file"
               onChange={(event) => {
                 event.preventDefault();
-                console.log(event.target.files[0], 'file');
                 setFiles({ file: event.target.files[0] });
               }}
             />

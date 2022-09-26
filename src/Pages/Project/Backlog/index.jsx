@@ -47,7 +47,6 @@ const ProjectBacklog = ({
   const { currentUserId } = useCurrentUser();
 
   const [filters, mergeFilters] = useMergeState(defaultFilters);
-  console.log(project, '----------project');
   return (
     <Fragment>
       <Breadcrumbs items={['Projects', project.name, 'Backlog']} />

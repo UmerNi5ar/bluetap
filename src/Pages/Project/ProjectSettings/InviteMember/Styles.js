@@ -1,10 +1,18 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
-import { color, font } from "../../../../shared/utils/styles";
-import { Button, Form } from "../../../../shared/components";
+import { color, font } from '../../../../shared/utils/styles';
+import { Button, Form } from '../../../../shared/components';
 
 export const FormElement = styled(Form.Element)`
   padding: 25px 40px 35px;
+
+  @media screen and (max-width: 600px) {
+    background-color: rgb(255, 255, 255);
+    position: fixed;
+    top: 40%;
+    left: 0;
+    width: 100vw;
+  }
 `;
 
 export const FormHeading = styled.div`

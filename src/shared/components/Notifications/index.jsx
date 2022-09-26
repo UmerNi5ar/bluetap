@@ -18,7 +18,6 @@ const NotificationHandler = ({ socket, userId }) => {
         notification.type === 'added_comment' ||
         notification.type === 'updated_comment'
       ) {
-        console.log(notification, 'not');
         return {
           id: notification.id,
           userId,

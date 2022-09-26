@@ -52,7 +52,7 @@ export const Image = styled.img`
   max-width: 100%;
 `;
 export const ImageContainer = styled.div`
-  max-height: 100%;
+  height: 100%;
   max-width: 100%;
 `;
 export const FullContainer = styled.div`

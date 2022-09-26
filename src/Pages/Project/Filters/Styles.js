@@ -4,9 +4,6 @@ import { color, font, mixin } from '../../../shared/utils/styles';
 import { InputDebounced, Avatar, Button } from '../../../shared/components';
 
 export const Filters = styled.div`
-  display: flex;
-  align-items: center;
-  margin-top: 24px;
   @media (max-width: 550px) {
     margin-right: auto;
     flex-direction: column;
@@ -20,7 +17,7 @@ export const Filters = styled.div`
 
 export const SearchInput = styled(InputDebounced)`
   margin-right: 18px;
-  width: 160px;
+  width: 200px;
 `;
 
 export const Avatars = styled.div`

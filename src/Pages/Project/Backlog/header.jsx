@@ -14,9 +14,6 @@ const ProjectBoardHeader = ({
   user,
   project,
 }) => {
-  console.log(sprintStatus === 'inactive');
-  console.log(user.role === 'owner');
-  console.log(user.id === project.projectLead.id);
   return (
     <Header>
       <BoardName>{project.name}</BoardName>

@@ -67,7 +67,7 @@ const ProjectBoardEpicDetails = ({
       <Content>
         <Left>
           <Title epic={data} updateEpic={updateEpic} />
-          <Description epic={data} updateEpic={updateEpic} />
+
           <ChildIssues epic={data} stage={epic.stage} />
           <Comments epic={data} fetchEpic={fetchEpic} />
         </Left>

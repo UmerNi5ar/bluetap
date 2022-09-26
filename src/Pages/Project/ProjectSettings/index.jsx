@@ -10,7 +10,6 @@ import { Form, Breadcrumbs, Avatar, Icon } from '../../../shared/components';
 import { HeaderRightContent } from '../../MyProjects/Board/Header/Styles';
 import NotificationHandler from '../../../shared/components/Notifications';
 import CreateMap from '../../../shared/components/CreateMap';
-
 import {
   FormCont,
   FormHeading,

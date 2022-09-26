@@ -16,33 +16,60 @@ const propTypes = {
 
 const ProjectBoardIssueDetailsCommentsBodyForm = (props) => {
   const $textareaRef = useRef();
+  const [display, setDisplay] = useState('block');
   // const [ratings, setRatings] = useState();
   const handleSubmit = () => {
     if ($textareaRef.current.value.trim()) {
       props.onSubmit();
     }
   };
+  console.log(props);
   return (
     <Fragment>
       <Textarea
         autoFocus
         placeholder="Add a comment..."
         value={props.value}
-        onChange={props.onChange}
+        onChange={(e) => {
+          props.onChange();
+        }}
         ref={$textareaRef}
       />
-      <Actions>
-        <FormButton
-          variant="primary"
-          isWorking={props.isWorking}
-          onClick={handleSubmit}
-        >
-          Save
-        </FormButton>
-        <FormButton variant="empty" onClick={props.onCancel}>
-          Cancel
-        </FormButton>
-      </Actions>
+      {props.type === 'review' ? (
+        <Actions>
+          <FormButton
+            style={{ display: `${display}` }}
+            variant="primary"
+            isWorking={props.isWorking}
+            onClick={(e) => {
+              if (props.type === 'review') setDisplay('none');
+              handleSubmit();
+            }}
+          >
+            Save
+          </FormButton>
+          <FormButton
+            style={{ display: `${display}` }}
+            variant="empty"
+            onClick={props.onCancel}
+          >
+            Cancel
+          </FormButton>
+        </Actions>
+      ) : (
+        <Actions>
+          <FormButton
+            variant="primary"
+            isWorking={props.isWorking}
+            onClick={handleSubmit}
+          >
+            Save
+          </FormButton>
+          <FormButton variant="empty" onClick={props.onCancel}>
+            Cancel
+          </FormButton>
+        </Actions>
+      )}
     </Fragment>
   );
 };

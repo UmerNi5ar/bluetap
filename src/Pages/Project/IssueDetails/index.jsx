@@ -74,7 +74,10 @@ const ProjectBoardIssueDetails = ({
       body: review,
       rating: ratings,
     };
-    await axios.post(`/v1//issue/createReview`, sData);
+    await axios.post(
+      `https://dry-plateau-53276.herokuapp.com/v1/issue/createReview`,
+      sData
+    );
     await fetchIssue();
     await fetchProject();
   };
@@ -151,7 +154,7 @@ const ProjectBoardIssueDetails = ({
           ) : (
             <Reviewed>
               <div>
-                <spna style={{ color: '#0b875b' }}>Review: </spna>{' '}
+                <span style={{ color: '#0b875b' }}>Review: </span>{' '}
                 {issue.review.body}
               </div>
               <div>

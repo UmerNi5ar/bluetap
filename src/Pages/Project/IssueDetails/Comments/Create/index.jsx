@@ -49,7 +49,7 @@ const ProjectBoardIssueDetailsCommentsCreate = ({
       toast.error(error);
     }
   };
-  const handleReviewCreate = async () => {
+  const handleReviewCreate = async (e) => {
     try {
       setCreating(true);
       setReview(reviewBody);
@@ -60,6 +60,7 @@ const ProjectBoardIssueDetailsCommentsCreate = ({
       // await fetchIssue();
       // setFormOpen(false);
       setCreating(false);
+
       // setReview('');
     } catch (error) {
       toast.error(error);
@@ -77,6 +78,7 @@ const ProjectBoardIssueDetailsCommentsCreate = ({
         <Right>
           {isFormOpen ? (
             <BodyForm
+              type={type}
               role={role}
               value={reviewBody}
               onChange={setReviewBody}

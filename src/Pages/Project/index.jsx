@@ -67,7 +67,7 @@ const Project = ({ setProject, epicUnderView }) => {
               isOpen
               testid="modal:issue-create"
               width={800}
-              withCloseIcon={false}
+              withCloseIcon={true}
               onClose={() => {
                 history.goBack();
               }}

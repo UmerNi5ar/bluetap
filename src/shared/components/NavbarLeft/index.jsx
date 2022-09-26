@@ -23,7 +23,11 @@ const ProjectNavbarLeft = (props) => {
             props.setSidebar(!props.sidebar);
           }}
         >
-          <Icon type={props.sidebar ? 'arrow-left' : 'arrow-right'} size={27} />
+          <Icon
+            style={props.sidebar ? { color: 'red' } : {}}
+            type={props.sidebar ? 'arrow-left' : 'arrow-right'}
+            size={27}
+          />
           <ItemText>Show Routes</ItemText>
         </Item>
       ) : (

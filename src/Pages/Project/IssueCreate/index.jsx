@@ -93,7 +93,9 @@ const ProjectIssueCreate = ({
         }
         try {
           await createIssue(reqObject);
-          let url = `/v1/issue/postImage/${epic.key}*${epic.totalIssues + 1}`;
+          let url = `https://dry-plateau-53276.herokuapp.com/v1/issue/postImage/${
+            epic.key
+          }*${epic.totalIssues + 1}`;
           console.log(url);
           let fd = new FormData();
           fd.append('file', files.file);

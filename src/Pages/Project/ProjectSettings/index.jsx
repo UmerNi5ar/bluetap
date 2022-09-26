@@ -85,7 +85,7 @@ const ProjectSettings = ({ project, fetchProject, openInvitationModal }) => {
             await updateProject(values);
             if (files.file) {
               console.log('running file');
-              let url = `/v1/project/postImage/${project.key}`;
+              let url = `https://dry-plateau-53276.herokuapp.com/v1/project/postImage/${project.key}`;
               let fd = new FormData();
               fd.append('file', files.file);
               await axios.post(url, fd);

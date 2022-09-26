@@ -1,6 +1,6 @@
 {
   "name": "front",
-  "homepage": "umerni5ar.github.io ",
+  "homepage": ".",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -14,7 +14,7 @@
     "html-react-parser": "^1.4.6",
     "jwt-decode": "^2.2.0",
     "lodash": "^4.17.15",
-    "mapbox-gl": "^2.10.0",
+    "mapbox-gl": "^1.13.0",
     "moment": "^2.24.0",
     "prop-types": "^15.7.2",
     "query-string": "^6.9.0",

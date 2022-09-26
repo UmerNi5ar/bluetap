@@ -11,9 +11,6 @@ import {
 import './Styles.css';
 import EntryCard from '../../shared/components/EntryCard/EntryCard';
 import useApi from '../../shared/hooks/api';
-import HalfScreen from '../../shared/components/HalfSide';
-import Mangekyo from '../../shared/components/Loaders/Mangekyo';
-import SharinganBanner from '../../shared/components/Banner';
 import { Link, useHistory } from 'react-router-dom';
 import { BannerText } from '../../shared/components/Banner/Styles';
 import { AuthPage } from '../Styles';

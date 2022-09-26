@@ -35,7 +35,6 @@ const SignIn = ({ setUser }) => {
 
   return (
     <div className="signin__container">
-      <ShowMap longitude="70" latitude="30" />
       <AuthPage>
         <EntryCard>
           <Form

@@ -20,24 +20,42 @@ const CreateMap = (props) => {
           'https://geolocation-db.com/json/0bf34a90-393f-11ed-92e1-11df89e55a41'
         )
         .then((response) => {
-          return response.data;
-        })
-        .then((data) => {
-          // mapRef.current.flyTo({
-          //   center: [data.longitude, data.latitude],
-          // });
           props.setLngLat({
-            lng: data.longitude,
-            lat: data.latitude,
+            lng: response.data.longitude,
+            lat: response.data.latitude,
           });
         });
+      //   .finally((data) => {
+
+      //     console.log(data);
+
+      //   });
+      // console.log('i aint running');
     }
+    return;
   };
   useEffect(() => {
     getLoc();
   }, []);
+  // if (props.lnglat && typeof props.lnglat.lat === 'number') {
+  console.log(props.lnglat, '000000000000000000000000000');
 
-  if (props.lnglat)
+  // props.setLngLat({
+  //   lng: `${props.lnglat.lng}`,
+  //   lat: `${props.lnglat.lat}`,
+  // });
+  // longitude={
+  //   typeof props.lnglat.lng === 'string'
+  //     ? props.lnglat.lng
+  //     : `${props.lnglat.lng}`
+  // }
+  // latitude={
+  //   typeof props.lnglat.lat === 'string'
+  //     ? props.lnglat.lat
+  //     : `${props.lnglat.lat}`
+  // }
+  // }
+  if (props.lnglat) {
     return (
       <div
         style={{ width: '100%', height: '20rem', borderRadius: '20px' }}
@@ -47,15 +65,29 @@ const CreateMap = (props) => {
           ref={mapRef}
           mapboxAccessToken="pk.eyJ1IjoidW1lcm5pc2FyIiwiYSI6ImNrc3g3bXhpbzE0cWgydXQ3NHlkcGk4dDAifQ.AbnGi15rgLvZOahIz-M9Ww"
           initialViewState={{
-            longitude: props.lnglat.lng,
-            latitude: props.lnglat.lat,
+            longitude:
+              typeof props.lnglat.lng === 'string'
+                ? props.lnglat.lng
+                : `${props.lnglat.lng}`,
+            latitude:
+              typeof props.lnglat.lat === 'string'
+                ? props.lnglat.lat
+                : `${props.lnglat.lat}`,
             zoom: 8,
           }}
-          mapStyle="mapbox://styles/umernisar/cl8hfkgez000s14mtrtfubdlx"
+          mapStyle="mapbox://styles/mapbox/streets-v11"
         >
           <Marker
-            longitude={props.lnglat.lng}
-            latitude={props.lnglat.lat}
+            longitude={
+              typeof props.lnglat.lng === 'string'
+                ? props.lnglat.lng
+                : `${props.lnglat.lng}`
+            }
+            latitude={
+              typeof props.lnglat.lat === 'string'
+                ? props.lnglat.lat
+                : `${props.lnglat.lat}`
+            }
             draggable
             onDragEnd={(e) =>
               props.setLngLat({ lng: e.lngLat.lng, lat: e.lngLat.lat })
@@ -76,7 +108,7 @@ const CreateMap = (props) => {
         </ReactMapGL>
       </div>
     );
-  else return <div>Loading....</div>;
+  } else return <div>Loading....</div>;
 };
 
 export default CreateMap;

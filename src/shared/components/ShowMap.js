@@ -29,7 +29,7 @@ const ShowMap = (props) => {
             latitude: lnglat.lat,
             zoom: 8,
           }}
-          mapStyle="mapbox://styles/umernisar/cl8hfkgez000s14mtrtfubdlx"
+          mapStyle="mapbox://styles/mapbox/streets-v11"
         >
           <Marker longitude={lnglat.lng} latitude={lnglat.lat} />
           <NavigationControl position="bottom-right" />

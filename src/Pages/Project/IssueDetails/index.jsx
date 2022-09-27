@@ -81,7 +81,7 @@ const ProjectBoardIssueDetails = ({
     await fetchIssue();
     await fetchProject();
   };
-
+  let roleAuthrized = user.role === 'owner' || user.id === projectLead.id;
   return (
     <Fragment>
       <TopActions>
@@ -128,7 +128,7 @@ const ProjectBoardIssueDetails = ({
           <Dates issue={issue} />
           <Divider />
           {!issue.review ? (
-            user.role === 'owner' ? (
+            user.role === 'owner' || user.id === projectLead.id ? (
               <ReviewContainer>
                 <span>Review: </span>
                 <RatingsContainer>

@@ -63,9 +63,7 @@ const SignUp = ({ inviteInputVisible }) => {
                   creationDate: Date.now(),
                 });
                 if (user.user.role === 'owner') {
-                  toast.success(
-                    'Organization Registered. Please verify your email to access your account!'
-                  );
+                  toast.success('Organization Registered.');
                 } else {
                   toast.success('User created successfully!');
                 }

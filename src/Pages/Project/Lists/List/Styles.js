@@ -6,6 +6,9 @@ export const List = styled.div`
   &:last-child {
     background-color: #0b875b;
   }
+  &:first-child {
+    background-color: #f4f5f7;
+  }
   display: flex;
   flex-direction: column;
   margin: 0 5px;

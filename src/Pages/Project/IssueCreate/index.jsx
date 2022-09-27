@@ -153,12 +153,7 @@ const ProjectIssueCreate = ({
           renderOption={renderUser(project)}
           renderValue={renderUser(project)}
         />
-        <Form.Field.Input
-          name="estimate"
-          type="number"
-          label="Time Estimate"
-          tip="How much time would this task take to complete"
-        />
+
         <Form.Field.Select
           name="priority"
           label="Priority"

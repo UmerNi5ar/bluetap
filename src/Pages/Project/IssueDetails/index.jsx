@@ -65,13 +65,13 @@ const ProjectBoardIssueDetails = ({
     await fetchProject();
   };
   const createReview = async () => {
-    if (!ratings || !review || !body) {
+    if (!ratings || !body) {
       toast.error('No review provided!');
       return;
     }
     const sData = {
       issueId,
-      body: review,
+      body: body,
       rating: ratings,
     };
     await axios.post(

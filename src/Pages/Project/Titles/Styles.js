@@ -12,6 +12,10 @@ export const Title = styled.div`
     background-color: #0b875b;
     color: white;
   }
+  &:first-child {
+    background-color: #f4f5f7;
+    color: #5e6c84;
+  }
   padding: 13px 10px 17px;
   background: ${color.backgroundLightest};
   text-transform: uppercase;

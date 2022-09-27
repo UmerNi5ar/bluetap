@@ -6,14 +6,6 @@ import Ratings from '../../../Ratings';
 import { Actions, FormButton } from './Styles';
 import { connect } from 'react-redux';
 
-const propTypes = {
-  value: PropTypes.string.isRequired,
-  onChange: PropTypes.func.isRequired,
-  isWorking: PropTypes.bool.isRequired,
-  onSubmit: PropTypes.func.isRequired,
-  onCancel: PropTypes.func.isRequired,
-};
-
 const ProjectBoardIssueDetailsCommentsBodyForm = (props) => {
   const $textareaRef = useRef();
   const [display, setDisplay] = useState('block');
@@ -23,27 +15,25 @@ const ProjectBoardIssueDetailsCommentsBodyForm = (props) => {
       props.onSubmit();
     }
   };
-  console.log(props);
-  return (
-    <Fragment>
-      <Textarea
-        autoFocus
-        placeholder="Add a comment..."
-        value={props.value}
-        onChange={(e) => {
-          props.onChange();
-        }}
-        ref={$textareaRef}
-      />
-      {props.type === 'review' ? (
-        <Actions>
+  if (props.type === 'review') {
+    return (
+      <React.Fragment>
+        <input
+          autoFocus
+          placeholder="Add a comment..."
+          value={props.value}
+          onChange={(e) => {
+            props.onChange(e.target.value);
+          }}
+          ref={$textareaRef}
+        />
+        {/* <Actions>
           <FormButton
             style={{ display: `${display}` }}
             variant="primary"
             isWorking={props.isWorking}
             onClick={(e) => {
-              if (props.type === 'review') setDisplay('none');
-              handleSubmit();
+              setDisplay('none');
             }}
           >
             Save
@@ -55,8 +45,19 @@ const ProjectBoardIssueDetailsCommentsBodyForm = (props) => {
           >
             Cancel
           </FormButton>
-        </Actions>
-      ) : (
+        </Actions> */}
+      </React.Fragment>
+    );
+  } else {
+    return (
+      <React.Fragment>
+        <Textarea
+          autoFocus
+          placeholder="Add a comment..."
+          value={props.value}
+          onChange={props.onChange}
+          ref={$textareaRef}
+        />
         <Actions>
           <FormButton
             variant="primary"
@@ -69,12 +70,10 @@ const ProjectBoardIssueDetailsCommentsBodyForm = (props) => {
             Cancel
           </FormButton>
         </Actions>
-      )}
-    </Fragment>
-  );
+      </React.Fragment>
+    );
+  }
 };
-
-ProjectBoardIssueDetailsCommentsBodyForm.propTypes = propTypes;
 
 const mapStateToProps = (state) => ({
   user: state.userState.user,

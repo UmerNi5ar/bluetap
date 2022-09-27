@@ -34,7 +34,6 @@ const ProjectBoardIssueDetailsCommentsCreate = ({
   const handleCommentCreate = async () => {
     try {
       setCreating(true);
-
       await api.post(`/comment`, {
         body,
         issueId,
@@ -83,9 +82,7 @@ const ProjectBoardIssueDetailsCommentsCreate = ({
               value={reviewBody}
               onChange={setReviewBody}
               isWorking={isCreating}
-              onSubmit={
-                type === 'review' ? handleReviewCreate : handleCommentCreate
-              }
+              onSubmit={handleReviewCreate}
               onCancel={() => setFormOpen(false)}
             />
           ) : (
@@ -113,9 +110,7 @@ const ProjectBoardIssueDetailsCommentsCreate = ({
             value={body}
             onChange={setBody}
             isWorking={isCreating}
-            onSubmit={
-              type === 'review' ? handleReviewCreate : handleCommentCreate
-            }
+            onSubmit={handleCommentCreate}
             onCancel={() => setFormOpen(false)}
           />
         ) : (

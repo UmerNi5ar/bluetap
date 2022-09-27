@@ -14,7 +14,7 @@ const SprintEnd = ({ fetchProject, projectId }) => {
   const handleSprintEnd = async (modal) => {
     try {
       await api.get(`/project/end_sprint/${projectId}`);
-      toast.success('Sprint ended successfully!');
+      toast.success('Issue was send to archive!');
       modal.close();
       await fetchProject();
     } catch (error) {
@@ -27,7 +27,7 @@ const SprintEnd = ({ fetchProject, projectId }) => {
     <ConfirmModal
       title="Archive Reviewed"
       message="Everything that is in *REVIEWED* will be moved to history."
-      confirmText="End Sprint"
+      confirmText="Archive"
       onConfirm={handleSprintEnd}
       renderLink={(modal) => (
         <Button variant="primary" onClick={modal.open}>

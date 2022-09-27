@@ -81,8 +81,6 @@ html {
 
 @media screen and (max-width: 450px) {
   .items {
-    background-color: red;
-
     width: 70vw;
     z-index: 10000;
   }

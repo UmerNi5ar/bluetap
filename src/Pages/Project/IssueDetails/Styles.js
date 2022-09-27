@@ -6,6 +6,7 @@ export const Content = styled.div`
   display: flex;
   padding: 0 30px 60px;
   @media (max-width: 600px) {
+    width: 100vw;
     flex-direction: column;
   }
 `;
@@ -13,11 +14,17 @@ export const Content = styled.div`
 export const Left = styled.div`
   width: 65%;
   padding-right: 50px;
+  @media (max-width: 450px) {
+    width: 100%;
+  }
 `;
 
 export const Right = styled.div`
   width: 35%;
   padding-top: 5px;
+  @media (max-width: 450px) {
+    width: 100%;
+  }
 `;
 
 export const TopActions = styled.div`

@@ -79,7 +79,7 @@ const Modal = ({
   }, [isOpen]);
 
   return (
-    <Fragment>
+    <div>
       {!isControlled && renderLink({ open: () => setStateOpen(true) })}
 
       {isOpen &&
@@ -106,7 +106,7 @@ const Modal = ({
           </ScrollOverlay>,
           $root
         )}
-    </Fragment>
+    </div>
   );
 };
 

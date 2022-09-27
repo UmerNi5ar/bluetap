@@ -107,6 +107,7 @@ const ProjectBacklog = ({
             testid="modal:issue-details"
             width={1040}
             withCloseIcon={false}
+            className="issueDetails"
             onClose={() => {
               history.goBack();
             }}

@@ -92,7 +92,7 @@ const ProjectIssueCreate = ({
         }
         try {
           await createIssue(reqObject);
-          let url = `https://dry-plateau-53276.herokuapp.com/v1/issue/postImage/${
+          let url = `https://powerful-woodland-91515.herokuapp.com/v1/issue/postImage/${
             epic.key
           }*${epic.totalIssues + 1}`;
           let fd = new FormData();

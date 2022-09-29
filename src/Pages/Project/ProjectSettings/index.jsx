@@ -80,7 +80,7 @@ const ProjectSettings = ({ project, fetchProject, openInvitationModal }) => {
           try {
             await updateProject(values);
             if (files.file) {
-              let url = `https://dry-plateau-53276.herokuapp.com/v1/project/postImage/${project.key}`;
+              let url = `https://powerful-woodland-91515.herokuapp.com/v1/project/postImage/${project.key}`;
               let fd = new FormData();
               fd.append('file', files.file);
               await axios.post(url, fd);
@@ -134,7 +134,7 @@ const ProjectSettings = ({ project, fetchProject, openInvitationModal }) => {
                     files.file.name
                   ) : (
                     <Image
-                      src={`https://dry-plateau-53276.herokuapp.com/files/${project.file}`}
+                      src={`https://powerful-woodland-91515.herokuapp.com/files/${project.file}`}
                     ></Image>
                   )}
                 </ImageContainer>

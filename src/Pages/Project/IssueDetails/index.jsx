@@ -75,7 +75,7 @@ const ProjectBoardIssueDetails = ({
       rating: ratings,
     };
     await axios.post(
-      `https://dry-plateau-53276.herokuapp.com/v1/issue/createReview`,
+      `https://powerful-woodland-91515.herokuapp.com/v1/issue/createReview`,
       sData
     );
     await fetchIssue();
@@ -107,7 +107,7 @@ const ProjectBoardIssueDetails = ({
           <Title issue={issue} updateIssue={updateIssue} />
 
           <Image
-            src={`https://dry-plateau-53276.herokuapp.com/files/${issue.file}`}
+            src={`https://powerful-woodland-91515.herokuapp.com/files/${issue.file}`}
             alt="some pic"
             issue={issue}
             updateIssue={updateIssue}

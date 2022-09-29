@@ -23,9 +23,10 @@ const ProjectBoardHeader = ({
           <Button variant="success" onClick={epicCreateModalOpen}>
             New Category
           </Button>
-          {(user.role === 'owner' || user.id === project.projectLead.id) && (
-            <Sprint fetchProject={fetchProject} projectId={projectId} />
-          )}
+          <Sprint fetchProject={fetchProject} projectId={projectId} />
+
+          {/* {(user.role === 'owner' || user.id === project.projectLead.id) && ( */}
+          {/* )} */}
         </HeaderRightContent>
       </ActionContainer>
     </Header>

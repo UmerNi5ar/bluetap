@@ -10,7 +10,7 @@ function connect() {
     const socket = io(
       process.env.NODE_ENV === 'development'
         ? 'http://localhost:5000'
-        : 'https://dry-plateau-53276.herokuapp.com',
+        : 'https://powerful-woodland-91515.herokuapp.com',
       {
         query: { token: getStoredAuthToken() },
       }

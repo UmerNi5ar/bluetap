@@ -20,10 +20,11 @@ const CreateMap = (props) => {
           'https://geolocation-db.com/json/0bf34a90-393f-11ed-92e1-11df89e55a41'
         )
         .then((response) => {
-          props.setLngLat({
-            lng: response.data.longitude,
-            lat: response.data.latitude,
-          });
+          if (!props.lnglat)
+            props.setLngLat({
+              lng: response.data.longitude,
+              lat: response.data.latitude,
+            });
         });
       //   .finally((data) => {
 

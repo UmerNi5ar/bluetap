@@ -61,7 +61,7 @@ const ProjectBacklog = ({
         {project.file ? (
           <ImageContainer>
             <Image
-              src={`https://dry-plateau-53276.herokuapp.com/files/${project.file}`}
+              src={`https://powerful-woodland-91515.herokuapp.com/files/${project.file}`}
             ></Image>
           </ImageContainer>
         ) : null}

@@ -6,6 +6,12 @@ export const Header = styled.div`
   margin-top: 6px;
   display: flex;
   justify-content: space-between;
+  @media (max-width: 600px) {
+    &:last-child {
+      margin-left: auto;
+    }
+    flex-direction: column;
+  }
 `;
 
 export const BoardName = styled.div`

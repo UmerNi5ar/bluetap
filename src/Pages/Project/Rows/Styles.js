@@ -1,5 +1,5 @@
-import styled from "styled-components";
-import { color } from "../../../shared/utils/styles";
+import styled from 'styled-components';
+import { color } from '../../../shared/utils/styles';
 
 export const Rows = styled.div`
   display: flex;
@@ -31,10 +31,8 @@ export const TriggerInner = styled.div`
 `;
 
 export const IconStyler = styled.div`
+  display: flex;
+  gap: 2rem;
   border-radius: 50%;
   padding: 0 2px;
-
-  &:hover {
-    background: #e2e3e9;
-  }
 `;

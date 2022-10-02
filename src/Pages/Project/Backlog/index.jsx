@@ -58,13 +58,22 @@ const ProjectBacklog = ({
         sprintStatus={project.sprintStatus}
       />
       <FullContainer>
-        {project.file ? (
+        {!project.file ? null : project.file.includes('video') ? (
+          <div style={{ maxWidth: '100%', maxHeight: '100%' }}>
+            <video
+              controls
+              style={{ width: '100%', height: '100%' }}
+              src={`https://powerful-woodland-91515.herokuapp.com/files/${project.file}`}
+            />
+          </div>
+        ) : (
           <ImageContainer>
             <Image
               src={`https://powerful-woodland-91515.herokuapp.com/files/${project.file}`}
-            ></Image>
+              alt="Some Picture"
+            />
           </ImageContainer>
-        ) : null}
+        )}
 
         {project.location.latitude ? (
           <MapContainer>

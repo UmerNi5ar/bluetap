@@ -45,7 +45,7 @@ const Project = ({ setProject, epicUnderView }) => {
   if (error) return <PageError />;
   const { project } = data;
   setProject(project);
-
+  console.log(project, 'projectprojectprojectprojectproject');
   return (
     <ProjectPage className="project__board">
       <NavbarLeft sidebar={sidebar} setSidebar={setSidebar} />

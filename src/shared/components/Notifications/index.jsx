@@ -12,7 +12,7 @@ import api from '../../utils/api';
 
 const NotificationHandler = ({ socket, userId }) => {
   const match = useRouteMatch();
-  const data = socket.notifications
+  let data = socket.notifications
     .map((notification) => {
       if (
         notification.type === 'added_comment' ||
@@ -42,6 +42,10 @@ const NotificationHandler = ({ socket, userId }) => {
   const ReadAllNotifications = async () => {
     await api.get(`/notification/read_all/${userId}`);
   };
+  data = data.filter(function(element) {
+    return element !== undefined;
+  });
+  console.log(data);
   return (
     <NotificationWrapper>
       <Notifications

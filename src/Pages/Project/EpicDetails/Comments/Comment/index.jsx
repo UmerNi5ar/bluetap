@@ -1,12 +1,12 @@
-import React, { Fragment, useState } from "react";
-import PropTypes from "prop-types";
+import React, { Fragment, useState } from 'react';
+import PropTypes from 'prop-types';
 
-import api from "../../../../../shared/utils/api";
-import toast from "../../../../../shared/utils/toast";
-import { formatDateTimeConversational } from "../../../../../shared/utils/dateTime";
-import { ConfirmModal } from "../../../../../shared/components";
+import api from '../../../../../shared/utils/api';
+import toast from '../../../../../shared/utils/toast';
+import { formatDateTimeConversational } from '../../../../../shared/utils/dateTime';
+import { ConfirmModal } from '../../../../../shared/components';
 
-import BodyForm from "../BodyForm";
+import BodyForm from '../BodyForm';
 import {
   Comment,
   UserAvatar,
@@ -15,14 +15,14 @@ import {
   CreatedAt,
   Body,
   EditLink,
-  DeleteLink
-} from "./Styles";
-import { connect } from "react-redux";
+  DeleteLink,
+} from './Styles';
+import { connect } from 'react-redux';
 
 const propTypes = {
   comment: PropTypes.object.isRequired,
   fetchIssue: PropTypes.func.isRequired,
-  userId: PropTypes.string.isRequired
+  userId: PropTypes.string.isRequired,
 };
 
 const ProjectBoardEpicDetailsComment = ({ comment, fetchEpic, userId }) => {
@@ -70,18 +70,18 @@ const ProjectBoardEpicDetailsComment = ({ comment, fetchEpic, userId }) => {
           <Fragment>
             <Body>{comment.body}</Body>
             {userId === comment.userId && (
-              <>
+              <div className="abdef" style={{ display: 'flex' }}>
                 <EditLink onClick={() => setFormOpen(true)}>Edit</EditLink>
                 <ConfirmModal
                   title="Are you sure you want to delete this comment?"
                   message="Once you delete, it's gone for good."
                   confirmText="Delete comment"
                   onConfirm={handleCommentDelete}
-                  renderLink={modal => (
+                  renderLink={(modal) => (
                     <DeleteLink onClick={modal.open}>Delete</DeleteLink>
                   )}
                 />
-              </>
+              </div>
             )}
           </Fragment>
         )}
@@ -92,8 +92,8 @@ const ProjectBoardEpicDetailsComment = ({ comment, fetchEpic, userId }) => {
 
 ProjectBoardEpicDetailsComment.propTypes = propTypes;
 
-const mapStateToProps = state => ({
-  userId: state.userState.user.id
+const mapStateToProps = (state) => ({
+  userId: state.userState.user.id,
 });
 
 export default connect(mapStateToProps)(ProjectBoardEpicDetailsComment);

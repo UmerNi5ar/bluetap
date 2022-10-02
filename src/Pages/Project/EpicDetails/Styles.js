@@ -1,10 +1,14 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
-import { color, font } from "../../../shared/utils/styles";
+import { color, font } from '../../../shared/utils/styles';
 
 export const Content = styled.div`
   display: flex;
   padding: 0 30px 60px;
+  @media (max-width: 600px) {
+    flex-direction: column;
+    width: 100vw;
+  }
 `;
 
 export const Left = styled.div`
@@ -37,4 +41,10 @@ export const SectionTitle = styled.div`
   color: ${color.textMedium};
   ${font.size(12.5)}
   ${font.bold}
+`;
+export const Container = styled.div`
+  @media (max-width: 1100px) {
+    display: flex;
+    flex-direction: column;
+  }
 `;

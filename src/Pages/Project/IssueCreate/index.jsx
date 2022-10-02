@@ -81,6 +81,7 @@ const ProjectIssueCreate = ({
           key: `${epic.key}.${epic.totalIssues + 1}`,
           projectId: project.id,
           creationDate: Date.now(),
+          deadline: values.deadline,
         };
 
         if (values.assigneeId) {
@@ -153,7 +154,18 @@ const ProjectIssueCreate = ({
           renderOption={renderUser(project)}
           renderValue={renderUser(project)}
         />
-
+        <Form.Field.Input
+          name="estimate"
+          type="number"
+          label="Time Estimate"
+          tip="How much time would this task take to complete"
+        />
+        <Form.Field.Input
+          name="deadline"
+          type="Date"
+          label="Deadline"
+          tip="Deadline for completing the task."
+        />
         <Form.Field.Select
           name="priority"
           label="Priority"

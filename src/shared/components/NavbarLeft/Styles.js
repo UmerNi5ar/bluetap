@@ -6,13 +6,14 @@ import { font, sizes, color, mixin, zIndexValues } from '../../utils/styles';
 export const NavLeft = styled.aside`
   z-index: ${zIndexValues.navLeft};
   position: fixed;
-  top: 0;
+  top: 27px;
   left: 0;
   overflow-x: hidden;
-  height: 100vh;
+  height: 60vh;
   width: ${sizes.appNavBarLeftWidth}px;
   background: ${color.backgroundDarkPrimary};
   transition: all 0.1s;
+  border-bottom-right-radius: 2rem;
 
   ${mixin.hardwareAccelerate}
   &:hover {

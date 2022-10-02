@@ -40,7 +40,8 @@ const ProjectBoardHeader = ({ project, fetchProject, user }) => {
               </SprintInfo>
             )} */}
             {project.sprintStatus === 'active' &&
-              (user.role === 'owner' || user.id === project.projectLead.id) && (
+              ((user.role === 'owner' && !user.isHalfOwner) ||
+                user.id === project.projectLead.id) && (
                 <SprintEnd
                   fetchProject={fetchProject}
                   projectId={project._id}

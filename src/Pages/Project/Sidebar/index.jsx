@@ -36,6 +36,7 @@ const ProjectSidebar = (props) => {
           </ProjectCategory>
         </ProjectTexts>
       </ProjectInfo>
+      {console.log(props, 'required ///////////////////////////////////////')}
       {props.userRole === 'owner' &&
         renderLinkItem(match, 'To Review', 'board', '/board')}
       {renderLinkItem(match, 'Backlog', 'plus', '/backlog')}
@@ -70,8 +71,16 @@ const renderLinkItem = (match, text, iconType, path) => {
   );
 };
 
-const mapStateToProps = (state) => ({
-  userRole: state.userState.user.role,
-});
+const mapStateToProps = (state) => {
+  console.log(state.userState.user);
+  if (
+    state.userState.user.role === 'owner' &&
+    !state.userState.user.isHalfOwner
+  )
+    return { userRole: state.userState.user.role };
+  else {
+    return { userRole: 'member' };
+  }
+};
 
 export default connect(mapStateToProps)(ProjectSidebar);

@@ -10,6 +10,8 @@ import { Form, Breadcrumbs, Avatar, Icon } from '../../../shared/components';
 import { HeaderRightContent } from '../../MyProjects/Board/Header/Styles';
 import NotificationHandler from '../../../shared/components/Notifications';
 import CreateMap from '../../../shared/components/CreateMap';
+import { Player } from 'video-react';
+
 import {
   FormCont,
   FormHeading,
@@ -132,6 +134,14 @@ const ProjectSettings = ({ project, fetchProject, openInvitationModal }) => {
 
                   {files.file ? (
                     files.file.name
+                  ) : project.file.includes('video') ? (
+                    <div style={{ maxWidth: '100%', maxHeight: '100%' }}>
+                      <video
+                        controls
+                        style={{ width: '100%', height: '100%' }}
+                        src={`https://powerful-woodland-91515.herokuapp.com/files/${project.file}`}
+                      />
+                    </div>
                   ) : (
                     <Image
                       src={`https://powerful-woodland-91515.herokuapp.com/files/${project.file}`}

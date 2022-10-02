@@ -20,6 +20,16 @@ export const IssuePriority = {
   LOW: '2',
   LOWEST: '1',
 };
+export const CategoryType = {
+  PLUMBING: 'PLUMBING',
+  ELECTRICAL: 'ELECTRICAL',
+  PAINT: 'PAINT',
+  FLOORING: 'FLOORING',
+  WINDOWS: 'WINDOWS',
+  DOORS: 'DOORS',
+  TRIM: 'TRIM',
+  ROOFING: 'ROOFING',
+};
 
 export const IssueStatusCopy = {
   // [IssueStatus.BLOCKED]: 'Blocked',
@@ -44,4 +54,14 @@ export const IssuePriorityCopy = {
   [IssuePriority.MEDIUM]: 'Medium',
   [IssuePriority.LOW]: 'Low',
   [IssuePriority.LOWEST]: 'Lowest',
+};
+export const CategoryTypesCopy = {
+  [CategoryType.PLUMBING]: 'PLUMBING',
+  [CategoryType.ELECTRICAL]: 'ELECTRICAL',
+  [CategoryType.PAINT]: 'PAINT',
+  [CategoryType.FLOORING]: 'FLOORING',
+  [CategoryType.WINDOWS]: 'WINDOWS',
+  [CategoryType.DOORS]: 'DOORS',
+  [CategoryType.TRIM]: 'TRIM',
+  [CategoryType.ROOFING]: 'ROOFING',
 };

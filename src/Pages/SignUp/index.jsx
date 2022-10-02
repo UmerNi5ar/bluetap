@@ -62,7 +62,7 @@ const SignUp = ({ inviteInputVisible }) => {
                   ...values,
                   creationDate: Date.now(),
                 });
-                if (user.user.role === 'owner') {
+                if (user.user.role === 'owner' && !user.user.isHalfOwner) {
                   toast.success('Organization Registered.');
                 } else {
                   toast.success('User created successfully!');

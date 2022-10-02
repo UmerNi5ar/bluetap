@@ -2,14 +2,15 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import {
+  CategoryType,
+  CategoryTypesCopy,
   IssuePriority,
-  IssuePriorityCopy,
 } from '../../../shared/constants/issues';
 
 import { EpicPriorityCopy } from '../../../shared/constants/epics';
 import toast from '../../../shared/utils/toast';
 import useApi from '../../../shared/hooks/api';
-import { Form, IssuePriorityIcon } from '../../../shared/components';
+import { Form } from '../../../shared/components';
 
 import {
   FormHeading,
@@ -35,13 +36,15 @@ const ProjectEpicCreate = ({ project, fetchProject, onCreate, modalClose }) => {
     <Form
       enableReinitialize
       initialValues={{
-        epicTitle: '',
+        location: '',
+        epicTitle: CategoryType.PLUMBING,
         description: '',
         priority: IssuePriority.MEDIUM,
       }}
       validations={{
         epicTitle: [Form.is.required(), Form.is.maxLength(200)],
         priority: Form.is.required(),
+        location: Form.is.required(),
       }}
       onSubmit={async (values, form) => {
         try {
@@ -52,6 +55,7 @@ const ProjectEpicCreate = ({ project, fetchProject, onCreate, modalClose }) => {
             projectId: project._id,
             priority: values.priority,
             creationDate: Date.now(),
+            location: values.location,
           });
           await fetchProject();
           toast.success('Epic has been successfully created.');
@@ -63,12 +67,15 @@ const ProjectEpicCreate = ({ project, fetchProject, onCreate, modalClose }) => {
     >
       <FormElement>
         <FormHeading>Create Category</FormHeading>
-        <Form.Field.Input
+        <Form.Field.Input name="location" label="Location" />
+        <Form.Field.Select
           name="epicTitle"
           label="Category"
-          tip="Name of the category you want to add."
+          tip="Cateogory you want to add."
+          options={categoryOptions}
+          renderOption={renderCategory}
+          renderValue={renderCategory}
         />
-
         <Actions>
           <ActionButton type="submit" variant="primary" isWorking={isCreating}>
             Add
@@ -82,15 +89,14 @@ const ProjectEpicCreate = ({ project, fetchProject, onCreate, modalClose }) => {
   );
 };
 
-const priorityOptions = Object.values(IssuePriority).map((priority) => ({
-  value: priority,
-  label: IssuePriorityCopy[priority],
+const categoryOptions = Object.values(CategoryType).map((type) => ({
+  value: type,
+  label: CategoryTypesCopy[type],
 }));
 
-const renderPriority = ({ value: priority }) => (
+const renderCategory = ({ value: type }) => (
   <SelectItem>
-    <IssuePriorityIcon priority={priority} top={1} />
-    <SelectItemLabel>{EpicPriorityCopy[priority]}</SelectItemLabel>
+    <SelectItemLabel>{CategoryTypesCopy[type]}</SelectItemLabel>
   </SelectItem>
 );
 

@@ -13,7 +13,14 @@ import Description from './Description';
 import Comments from './Comments';
 import Priority from './Priority';
 import Dates from './Dates';
-import { TopActions, TopActionsRight, Content, Left, Right } from './Styles';
+import {
+  TopActions,
+  TopActionsRight,
+  Content,
+  Left,
+  Right,
+  Container,
+} from './Styles';
 import { connect } from 'react-redux';
 import IssuesCount from './IssuesCount';
 import ChildIssues from './ChildIssues';
@@ -42,13 +49,14 @@ const ProjectBoardEpicDetails = ({
     await fetchEpic();
     await fetchProject();
   };
-
+  console.log(data);
   return (
-    <Fragment>
+    <React.Fragment>
       <TopActions>
         <Type epic={data} />
         <TopActionsRight>
-          {(user.role === 'owner' || user.id === projectLead.id) && (
+          {((user.role === 'owner' && !user.isHalfOwner) ||
+            user.id === projectLead.id) && (
             <Delete
               epic={data}
               fetchProject={fetchProject}
@@ -74,10 +82,16 @@ const ProjectBoardEpicDetails = ({
         <Right>
           <Priority epic={data} updateEpic={updateEpic} />
           <IssuesCount epic={data} />
-          <Dates epic={data} />
+          <Dates epic={data} />{' '}
+          <div style={{ padding: '.5rem' }}>
+            Location:{' '}
+            <span style={{ marginLeft: 'auto', paddingLeft: '.5rem' }}>
+              {data.location}
+            </span>
+          </div>
         </Right>
       </Content>
-    </Fragment>
+    </React.Fragment>
   );
 };
 

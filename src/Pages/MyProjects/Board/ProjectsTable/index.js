@@ -18,7 +18,7 @@ const ProjectsTable = ({ user, projects, filters, fetchProjects, page }) => {
         }}
       >
         <div>{data.projectLead.name}</div>
-        {page !== 'account' && user.role === 'owner' && (
+        {page !== 'account' && user.role === 'owner' && !user.isHalfOwner && (
           <ProjectDelete fetchProjects={fetchProjects} project={data} />
         )}
       </div>

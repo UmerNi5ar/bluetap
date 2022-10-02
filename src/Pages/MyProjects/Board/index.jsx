@@ -15,12 +15,20 @@ const defaultFilters = {
   searchTerm: '',
 };
 
-const ProjectBoard = ({ projects, openCreateProjectModal, fetchProjects }) => {
+const ProjectBoard = ({
+  projects,
+  openCreateProjectModal,
+  fetchProjects,
+  inviteMemberModalHelpers,
+}) => {
   const [filters, mergeFilters] = useMergeState(defaultFilters);
 
   return (
     <Fragment>
-      <Header openCreateProjectModal={openCreateProjectModal} />
+      <Header
+        openCreateProjectModal={openCreateProjectModal}
+        inviteMemberModalHelpers={inviteMemberModalHelpers}
+      />
       <Filters
         defaultFilters={defaultFilters}
         filters={filters}

@@ -12,7 +12,7 @@ import {
 const defaults = {
   baseURL:
     process.env.NODE_ENV === 'development'
-      ? 'http://localhost:5000/v1'
+      ? 'https://powerful-woodland-91515.herokuapp.com/v1'
       : 'https://powerful-woodland-91515.herokuapp.com/v1',
   headers: () => ({
     'Content-Type': 'application/json',

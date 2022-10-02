@@ -9,7 +9,7 @@ function connect() {
   return new Promise((resolve, reject) => {
     const socket = io(
       process.env.NODE_ENV === 'development'
-        ? 'http://localhost:5000'
+        ? 'https://powerful-woodland-91515.herokuapp.com'
         : 'https://powerful-woodland-91515.herokuapp.com',
       {
         query: { token: getStoredAuthToken() },

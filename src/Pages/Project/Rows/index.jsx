@@ -38,7 +38,6 @@ const ProjectBacklogEpics = ({
             style={{
               margin: '2px 0 0 5px',
               marginLeft: 'auto',
-              fontSize: 'larger',
               color: '#0747A6',
             }}
           >

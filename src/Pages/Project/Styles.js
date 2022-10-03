@@ -56,7 +56,6 @@ export const ImageContainer = styled.div`
   max-width: 100%;
 `;
 export const FullContainer = styled.div`
-  max-height: 30rem;
   max-width: 100%;
   padding: 1rem;
   display: grid;

@@ -107,6 +107,7 @@ const ProjectBoardIssueDetails = ({
       <Content>
         <Left>
           <Title issue={issue} updateIssue={updateIssue} />
+          {console.log(issue)}
           {issue.file ? (
             issue.file.includes('video') ? (
               <div style={{ maxWidth: '100%', maxHeight: '100%' }}>

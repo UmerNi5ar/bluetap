@@ -43,7 +43,7 @@ const InviteMemberToProject = ({ project, user, modalClose }) => {
             orgId: user.orgId,
             type: 'org',
           });
-          toast.success(`Email: ${values.email} /n Code: ${code}`);
+          toast.success(`Invitation Code: ${code}`);
           toast.success('Invitation Sent!');
           modalClose();
         } catch (error) {

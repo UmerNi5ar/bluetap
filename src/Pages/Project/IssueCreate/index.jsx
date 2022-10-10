@@ -82,6 +82,7 @@ const ProjectIssueCreate = ({
           projectId: project.id,
           creationDate: Date.now(),
           deadline: values.deadline,
+          location: values.location,
         };
 
         if (values.assigneeId) {
@@ -128,6 +129,7 @@ const ProjectIssueCreate = ({
           renderOption={renderEpic(project)}
           renderValue={renderEpic(project)}
         />
+        <Form.Field.Input name="location" label="Location" />
         <Divider />
         <Form.Field.Input
           name="title"
@@ -158,7 +160,7 @@ const ProjectIssueCreate = ({
           name="estimate"
           type="number"
           label="Time Estimate"
-          tip="How much time would this task take to complete"
+          tip="Optional"
         />
         <Form.Field.Input
           name="deadline"

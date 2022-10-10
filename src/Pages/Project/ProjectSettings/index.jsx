@@ -52,6 +52,7 @@ const ProjectSettings = ({ project, fetchProject, openInvitationModal }) => {
     if (project.location) {
       setInputShow('block');
       setLngLat({
+        isRandom: project.location.isRandom,
         lat: project.location.latitude,
         lng: project.location.longitude,
       });
@@ -77,6 +78,7 @@ const ProjectSettings = ({ project, fetchProject, openInvitationModal }) => {
             location: {
               latitude: `${lnglat.lat}`,
               longitude: `${lnglat.lng}`,
+              isRandom: lnglat ? lnglat.isRandom : true,
             },
           };
           try {
@@ -97,9 +99,9 @@ const ProjectSettings = ({ project, fetchProject, openInvitationModal }) => {
       >
         <FormCont>
           <FormElement>
-            <Breadcrumbs
+            {/* <Breadcrumbs
               items={['Projects', project.name, 'Project Details']}
-            />
+            /> */}
             <Header>
               <FormHeading>Project Details</FormHeading>
               <HeaderRightContent>

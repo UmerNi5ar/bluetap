@@ -41,6 +41,11 @@ const InviteMemberToProject = ({ project, user, modalClose }) => {
             projectId: project._id,
             orgId: user.orgId,
           });
+          navigator.clipboard.writeText(`${code}`);
+          toast.success(
+            `Invitation Code: ${code}.\n Code has been copied to clipboard!😉`,
+            0
+          );
           toast.success('Invitation Sent!');
           modalClose();
         } catch (error) {

@@ -20,6 +20,7 @@ import ProjectBacklogEpics from '../Rows';
 import useCurrentUser from '../../../shared/hooks/currentUser';
 import { connect } from 'react-redux';
 import ShowMap from '../../../shared/components/ShowMap';
+import { Divider } from '../Sidebar/Styles';
 
 const propTypes = {
   project: PropTypes.object.isRequired,
@@ -47,9 +48,10 @@ const ProjectBacklog = ({
   const { currentUserId } = useCurrentUser();
 
   const [filters, mergeFilters] = useMergeState(defaultFilters);
+
   return (
     <Fragment>
-      <Breadcrumbs items={['Projects', project.name, 'Backlog']} />
+      {/* <Breadcrumbs items={['Projects', project.name, 'Backlog']} /> */}
 
       <Header
         epicCreateModalOpen={epicCreateModalOpen}
@@ -80,6 +82,7 @@ const ProjectBacklog = ({
             <ShowMap
               latitude={project.location.latitude}
               longitude={project.location.longitude}
+              isRandom={project.location.isRandom}
             />
           </MapContainer>
         ) : (

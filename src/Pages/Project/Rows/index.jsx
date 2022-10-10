@@ -26,6 +26,10 @@ const ProjectBacklogEpics = ({
   setEpicUnderView,
   epicDetailsModalOpen,
 }) => {
+  let issues = project.epics.filter((el) => {
+    return el.totalIssues !== 0;
+  });
+  let newProjects = { ...project, epics: issues };
   const TriggerRenderer = ({ epic, open }) => {
     return (
       <Trigger>
@@ -34,15 +38,6 @@ const ProjectBacklogEpics = ({
           <div style={{ margin: '2px 0 0 5px' }}>{epic.title}</div>
         </TriggerInner>
         <IconStyler>
-          <div
-            style={{
-              margin: '2px 0 0 5px',
-              marginLeft: 'auto',
-              color: '#0747A6',
-            }}
-          >
-            Location: {epic.location ? epic.location : 'Not Specified'}
-          </div>
           <Icon
             onClick={async (e) => {
               e.stopPropagation();
@@ -56,9 +51,11 @@ const ProjectBacklogEpics = ({
       </Trigger>
     );
   };
+
   return (
     <Rows>
-      {project.epics.map((epic) => {
+      {newProjects.epics.map((epic) => {
+        console.log(getIssuesForEpic(project, epic), 'imgggggggggggg');
         return (
           <Collapsible
             key={epic.key}

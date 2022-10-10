@@ -36,7 +36,7 @@ const ProjectBoard = ({ project, fetchProject, epicDetailsModalOpen }) => {
 
   return (
     <Fragment>
-      <Breadcrumbs items={['Projects', project.name, 'To Review']} />
+      {/* <Breadcrumbs items={['Projects', project.name, 'To Review']} /> */}
       <Header project={project} fetchProject={fetchProject} />
       <Filters
         projectUsers={project.users}

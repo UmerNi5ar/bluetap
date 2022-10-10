@@ -33,10 +33,10 @@ export const CategoryType = {
 
 export const IssueStatusCopy = {
   // [IssueStatus.BLOCKED]: 'Blocked',
-  [IssueStatus.SELECTED]: 'To Reiview',
+  [IssueStatus.SELECTED]: 'To Review',
   // [IssueStatus.INPROGRESS]: 'In progress',
   // [IssueStatus.INQA]: 'In QA',
-  [IssueStatus.DONE]: 'Reviwed',
+  [IssueStatus.DONE]: 'Reviewed',
 };
 
 export const BacklogIssueStatusCopy = {

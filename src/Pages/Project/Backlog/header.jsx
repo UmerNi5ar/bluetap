@@ -21,7 +21,7 @@ const ProjectBoardHeader = ({
         <HeaderRightContent>
           <NotificationHandler />
           <Button variant="success" onClick={epicCreateModalOpen}>
-            New Category
+            Add Task
           </Button>
           <Sprint fetchProject={fetchProject} projectId={projectId} />
 

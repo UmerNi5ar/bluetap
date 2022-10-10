@@ -65,14 +65,14 @@ const ProjectBoardIssueDetails = ({
     await fetchProject();
   };
   const createReview = async () => {
-    if (!ratings || !body) {
+    console.log(ratings, body);
+    if (!body) {
       toast.error('No review provided!');
       return;
     }
     const sData = {
       issueId,
       body: body,
-      rating: ratings,
     };
     await axios.post(
       `https://powerful-woodland-91515.herokuapp.com/v1/issue/createReview`,
@@ -83,6 +83,7 @@ const ProjectBoardIssueDetails = ({
   };
   let roleAuthrized =
     (user.role === 'owner' && !user.isHalfOwner) || user.id === projectLead.id;
+
   return (
     <Fragment>
       <TopActions>
@@ -153,6 +154,10 @@ const ProjectBoardIssueDetails = ({
               }}
             ></input>
           </div>
+          <div style={{ padding: '.5rem' }}>
+            {`Location: `}
+            <input type="text" value={issue.location}></input>
+          </div>
           <Dates issue={issue} />
           <Divider />
           {!issue.review ? (
@@ -160,9 +165,7 @@ const ProjectBoardIssueDetails = ({
             user.id === projectLead.id ? (
               <ReviewContainer>
                 <span>Review: </span>
-                <RatingsContainer>
-                  <Ratings size={30} half={true} setRatings={setRatings} />
-                </RatingsContainer>
+
                 <Create
                   type="review"
                   issueId={issue.id}
@@ -183,12 +186,11 @@ const ProjectBoardIssueDetails = ({
           ) : (
             <Reviewed>
               <div>
-                <span style={{ color: '#0b875b' }}>Review: </span>{' '}
-                {issue.review.body}
-              </div>
-              <div>
-                <span style={{ color: '#0b875b' }}>Rating: </span>{' '}
-                {issue.review.rating}/5
+                <b>
+                  {' '}
+                  <span style={{ fontSize: '1.1rem' }}>Review: </span>{' '}
+                </b>
+                <i style={{ color: '#0b875b' }}> {issue.review.body} </i>
               </div>
             </Reviewed>
           )}

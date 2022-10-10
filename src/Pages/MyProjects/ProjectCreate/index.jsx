@@ -68,8 +68,14 @@ const CreateProject = ({
               key: values.key,
               projectLead: values.projectLead,
               location: {
-                longitude: `${lnglat.lng}`,
-                latitude: `${lnglat.lat}`,
+                longitude: `${lnglat ? lnglat.lng : -74.05625923095704}`,
+                latitude: `${lnglat ? lnglat.lat : 40.88761465238926}`,
+                isRandom: lnglat ? lnglat.isRandom : true,
+                // isRandom: lnglat
+                //   ? lnglat.isRandom === false
+                //     ? false
+                //     : true
+                //   : true,
               },
             });
             if (files.file) {
@@ -104,24 +110,27 @@ const CreateProject = ({
             className="some-cname"
             lnglat={lnglat}
             setLngLat={setLngLat}
+            type="projectCreate"
           />
-
-          <Form.Field.Input
-            name="description"
-            label="Short Summary"
-            tip="Concisely summarize the project in one or two sentences."
-          />
-
+          <Divider />
           <Form.Field.Input
             name="projectName"
             label="Name"
             tip="What should we call your project?"
           />
           <Form.Field.Input
+            name="description"
+            label="Short Summary"
+            tip="Concisely summarize the project in one or two sentences."
+          />
+          <Form.Field.Input
             name="key"
-            label="Key"
             disabled={true}
-            tip="Unique identifier for you project (auto generated)"
+            style={{
+              display: 'float',
+              height: '0px',
+              color: 'transparent',
+            }}
           />
           <Form.Field.Select
             name="projectLead"

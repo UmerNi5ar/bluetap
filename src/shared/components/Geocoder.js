@@ -12,7 +12,8 @@ const Geocoder = (props) => {
   useControl(() => ctrl);
   ctrl.on('result', (e) => {
     const coords = e.result.geometry.coordinates;
-    props.setLngLat({ lng: coords[0], lat: coords[1] });
+    props.getLocation(coords[0], coords[1]);
+    props.setLngLat({ lng: coords[0], lat: coords[1], isRandom: false });
   });
   return null;
 };

@@ -43,7 +43,11 @@ const Project = ({ setProject, epicUnderView }) => {
 
   if (!data) return <PageLoader />;
   if (error) return <PageError />;
-  const { project } = data;
+  let { project } = data;
+  // let issues = project.epics.filter((el) => {
+  //   return el.totalIssues !== 0;
+  // });
+  // project = { ...project, epics: issues };
   setProject(project);
   console.log(project, 'projectprojectprojectprojectproject');
   return (
@@ -61,7 +65,12 @@ const Project = ({ setProject, epicUnderView }) => {
           ''
         )}
 
-        <div className="project__container">
+        <div
+          className="project__container"
+          onClick={(e) => {
+            setSidebar(false);
+          }}
+        >
           {issueCreateModalHelpers.isOpen() && (
             <Modal
               isOpen
@@ -134,7 +143,8 @@ const Project = ({ setProject, epicUnderView }) => {
             render={() => (
               <Backlog
                 issueCreateModalOpen={issueCreateModalHelpers.open}
-                epicCreateModalOpen={epicCreateModalHelpers.open}
+                epicCreateModalOpen={issueCreateModalHelpers.open}
+                ///// Changed to save a lot of work just passing issue from here
                 epicDetailsModalOpen={epicDetailsModalHelpers.open}
                 fetchProject={fetchProject}
               />

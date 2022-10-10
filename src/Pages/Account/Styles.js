@@ -52,3 +52,16 @@ export const AccountPage = styled.div`
     padding-left: ${180 - sizes.secondarySideBarWidthTwo}px;
   }
 `;
+export const Image = styled.img`
+  height: 200px;
+  width: 200px;
+  max-height: 100%;
+  max-width: 100%;
+  border-radius: 50%;
+`;
+export const ImageContainer = styled.div`
+  max-height: 100%;
+  max-width: 100%;
+  overflow: hidden;
+`;
+export const ImageContainerFallBack = styled.div``;

@@ -1,37 +1,37 @@
-import React, { Fragment } from "react";
-import PropTypes from "prop-types";
-import { Route, useRouteMatch, useHistory } from "react-router-dom";
+import React, { Fragment } from 'react';
+import PropTypes from 'prop-types';
+import { Route, useRouteMatch, useHistory } from 'react-router-dom';
 
-import useMergeState from "../../../shared/hooks/mergeState";
-import { Breadcrumbs, Modal } from "../../../shared/components";
+import useMergeState from '../../../shared/hooks/mergeState';
+import { Breadcrumbs, Modal } from '../../../shared/components';
 
-import Header from "./header";
-import Filters from "../Filters";
-import IssueDetails from "../IssueDetails";
-import { TitlesAndLists } from "../Styles";
-import ProjectBacklogTitleList from "../Titles";
-import ProjectBacklogEpics from "../Rows";
-import useCurrentUser from "../../../shared/hooks/currentUser";
-import { connect } from "react-redux";
+import Header from './header';
+import Filters from '../Filters';
+import IssueDetails from '../IssueDetails';
+import { TitlesAndLists } from '../Styles';
+import ProjectBacklogTitleList from '../Titles';
+import ProjectBacklogEpics from '../Rows';
+import useCurrentUser from '../../../shared/hooks/currentUser';
+import { connect } from 'react-redux';
 
 const propTypes = {
   project: PropTypes.object.isRequired,
   fetchProject: PropTypes.func.isRequired,
-  issueCreateModalOpen: PropTypes.func.isRequired
+  issueCreateModalOpen: PropTypes.func.isRequired,
 };
 
 const defaultFilters = {
-  searchTerm: "",
+  searchTerm: '',
   userIds: [],
   myOnly: false,
-  recent: false
+  recent: false,
 };
 
 const ProjectHistory = ({
   project,
   fetchProject,
   epicCreateModalOpen,
-  epicDetailsModalOpen
+  epicDetailsModalOpen,
 }) => {
   const match = useRouteMatch();
   const history = useHistory();
@@ -41,7 +41,7 @@ const ProjectHistory = ({
 
   return (
     <Fragment>
-      <Breadcrumbs items={["Projects", project.name, "Backlog"]} />
+      {/* <Breadcrumbs items={["Projects", project.name, "Backlog"]} /> */}
       <Header epicCreateModalOpen={epicCreateModalOpen} />
       <Filters
         page="history"
@@ -67,7 +67,7 @@ const ProjectHistory = ({
       </TitlesAndLists>
       <Route
         path={`${match.path}/issues/:issueId`}
-        render={routeProps => (
+        render={(routeProps) => (
           <Modal
             isOpen
             testid="modal:issue-details"
@@ -76,7 +76,7 @@ const ProjectHistory = ({
             onClose={() => {
               history.goBack();
             }}
-            renderContent={modal => (
+            renderContent={(modal) => (
               <IssueDetails
                 issueId={routeProps.match.params.issueId}
                 projectUsers={project.users}
@@ -94,8 +94,8 @@ const ProjectHistory = ({
 
 ProjectHistory.propTypes = propTypes;
 
-const mapStateToProps = state => ({
-  project: state.projectState.project
+const mapStateToProps = (state) => ({
+  project: state.projectState.project,
 });
 
 export default connect(mapStateToProps)(ProjectHistory);

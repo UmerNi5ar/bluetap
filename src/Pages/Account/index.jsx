@@ -129,18 +129,18 @@ const UserAccount = ({ user, orgProjects }) => {
                           setFiles({ file: event.target.files[0] });
                         }}
                       ></input>
-
-                      <Avatar
-                        size={150}
-                        avatarUrl={user.avatarUrl}
-                        name={user.name}
-                        onClick={(e) => {
-                          console.log('click');
-                          e.preventDefault();
-                          fileRefB.current.click();
-                        }}
-                      />
-                      <span>Click on image above to upload image!</span>
+                      <div className="avatar__container">
+                        <Avatar
+                          size={150}
+                          avatarUrl={user.avatarUrl}
+                          name={user.name}
+                          onClick={(e) => {
+                            console.log('click');
+                            e.preventDefault();
+                            fileRefB.current.click();
+                          }}
+                        />
+                      </div>
                     </React.Fragment>
                   )}
                 </AvatarContainer>

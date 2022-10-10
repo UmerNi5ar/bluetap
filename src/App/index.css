@@ -91,3 +91,6 @@ html {
     width: 70vw !important;
   }
 }
+.avatar__container:hover {
+  cursor: pointer;
+}

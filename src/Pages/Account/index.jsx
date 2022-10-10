@@ -140,6 +140,7 @@ const UserAccount = ({ user, orgProjects }) => {
                           fileRefB.current.click();
                         }}
                       />
+                      <span>Click on image above to upload image!</span>
                     </React.Fragment>
                   )}
                 </AvatarContainer>

@@ -1,6 +1,6 @@
 import React, { Fragment, useState } from 'react';
 import PropTypes from 'prop-types';
-
+import axios from 'axios';
 import api from '../../../../../shared/utils/api';
 import useCurrentUser from '../../../../../shared/hooks/currentUser';
 import toast from '../../../../../shared/utils/toast';
@@ -29,20 +29,33 @@ const ProjectBoardIssueDetailsCommentsCreate = ({
   const [isFormOpen, setFormOpen] = useState(false);
   const [isCreating, setCreating] = useState(false);
   const [body, setBody] = useState('');
+  const [files, setFiles] = useState({});
 
   const { currentUser } = useCurrentUser();
   const handleCommentCreate = async () => {
     try {
+      console.log(files, 'file');
       setCreating(true);
-      await api.post(`/comment`, {
+      const comment = await api.post(`/comment`, {
         body,
+
         issueId,
         userId: currentUser.id,
         user: currentUser.id,
       });
+      console.log(comment);
+      if (files.file) {
+        let url = `https://powerful-woodland-91515.herokuapp.com/v1/comment/postImage/${comment.id}`;
+        let fd = new FormData();
+        fd.append('file', files.file);
+
+        await axios.post(url, fd);
+      }
+
       await fetchIssue();
       setFormOpen(false);
       setCreating(false);
+      setFiles({});
       setBody('');
     } catch (error) {
       toast.error(error);
@@ -67,7 +80,7 @@ const ProjectBoardIssueDetailsCommentsCreate = ({
   };
   if (type === 'review') {
     return (
-      <Create>
+      <Create file={files} setFiles={setFiles}>
         {currentUser && (
           <UserAvatar
             name={currentUser.name}
@@ -76,15 +89,19 @@ const ProjectBoardIssueDetailsCommentsCreate = ({
         )}
         <Right>
           {isFormOpen ? (
-            <BodyForm
-              type={type}
-              role={role}
-              value={reviewBody}
-              onChange={setReviewBody}
-              isWorking={isCreating}
-              onSubmit={handleReviewCreate}
-              onCancel={() => setFormOpen(false)}
-            />
+            <React.Fragment>
+              <BodyForm
+                file={files}
+                setFiles={setFiles}
+                type={type}
+                role={role}
+                value={reviewBody}
+                onChange={setReviewBody}
+                isWorking={isCreating}
+                onSubmit={handleReviewCreate}
+                onCancel={() => setFormOpen(false)}
+              />
+            </React.Fragment>
           ) : (
             <Fragment>
               <FakeTextarea onClick={() => setFormOpen(true)}>
@@ -106,6 +123,9 @@ const ProjectBoardIssueDetailsCommentsCreate = ({
       <Right>
         {isFormOpen ? (
           <BodyForm
+            create={true}
+            file={files}
+            setFiles={setFiles}
             role={role}
             value={body}
             onChange={setBody}

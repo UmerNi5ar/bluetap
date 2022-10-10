@@ -36,7 +36,7 @@ const ProjectSidebar = (props) => {
           </ProjectCategory>
         </ProjectTexts>
       </ProjectInfo>
-      {console.log(props, 'required ///////////////////////////////////////')}
+
       {props.userRole === 'owner' &&
         renderLinkItem(match, 'To Review', 'board', '/board')}
       {renderLinkItem(match, 'Backlog', 'plus', '/backlog')}

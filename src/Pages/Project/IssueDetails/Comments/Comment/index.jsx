@@ -48,6 +48,7 @@ const ProjectBoardIssueDetailsComment = ({
     try {
       setUpdating(true);
       await api.put(`/comment/${comment.id}`, { body });
+
       await fetchIssue();
       setUpdating(false);
       setFormOpen(false);
@@ -75,7 +76,7 @@ const ProjectBoardIssueDetailsComment = ({
           <Fragment>
             <Body>{comment.body}</Body>
             {userId === comment.userId && (
-              <>
+              <div style={{ display: 'flex' }}>
                 <EditLink onClick={() => setFormOpen(true)}>Edit</EditLink>
                 <ConfirmModal
                   title="Are you sure you want to delete this comment?"
@@ -86,7 +87,45 @@ const ProjectBoardIssueDetailsComment = ({
                     <DeleteLink onClick={modal.open}>Delete</DeleteLink>
                   )}
                 />
-              </>
+              </div>
+            )}
+            {comment.file ? (
+              comment.file.includes('video') ? (
+                <div
+                  style={{
+                    maxWidth: '20rem',
+                    maxHeight: '20rem',
+                    padding: '1rem',
+                  }}
+                >
+                  <video
+                    controls
+                    style={{ width: '100%', height: '100%' }}
+                    src={`https://powerful-woodland-91515.herokuapp.com/files/${comment.file}`}
+                  />
+                </div>
+              ) : (
+                <div
+                  style={{
+                    width: '100%',
+
+                    height: '100%',
+                  }}
+                >
+                  <img
+                    src={`https://powerful-woodland-91515.herokuapp.com/files/${comment.file}`}
+                    style={{
+                      height: '100%',
+                      maxWidth: '100%',
+                      maxHeight: '20rem',
+                      padding: '1rem',
+                    }}
+                    alt="Some Picture"
+                  />
+                </div>
+              )
+            ) : (
+              ''
             )}
           </Fragment>
         )}

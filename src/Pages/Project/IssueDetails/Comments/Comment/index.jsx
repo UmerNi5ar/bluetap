@@ -93,14 +93,20 @@ const ProjectBoardIssueDetailsComment = ({
               comment.file.includes('video') ? (
                 <div
                   style={{
-                    maxWidth: '20rem',
-                    maxHeight: '20rem',
-                    padding: '1rem',
+                    width: '100%',
+
+                    height: '100%',
                   }}
                 >
                   <video
                     controls
-                    style={{ width: '100%', height: '100%' }}
+                    // style={{ width: '100%', height: '100%' }}
+                    style={{
+                      height: '100%',
+                      maxWidth: '100%',
+                      maxHeight: '20rem',
+                      padding: '1rem',
+                    }}
                     src={`https://powerful-woodland-91515.herokuapp.com/files/${comment.file}`}
                   />
                 </div>
